@@ -1,6 +1,6 @@
 package pl.kamilaugustyn.articleapp.article;
 
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,10 +43,10 @@ public class ArticleController {
     public Article updateArticle(@RequestBody Article article){
         return articleRepository.save(article);
     }
-    @Transactional
+
     @DeleteMapping
-    public boolean deleteArticle(@RequestParam long id){
-        return articleRepository.findAll().removeIf(element -> element.getId() == id);
+    public void deleteArticle(@RequestParam long id){
+        articleRepository.deleteById(id);
     }
 
 
