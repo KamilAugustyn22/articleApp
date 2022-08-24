@@ -1,6 +1,5 @@
 package pl.kamilaugustyn.articleapp.article;
 
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +16,7 @@ public class ArticleController {
         this.articleRepository = articleRepository;
         this.articleService = articleService;
     }
+
     @GetMapping("/all")
     public List<Article> findAllSortedByPublicationDate(){
         return articleRepository.findAllSortedByPublicationDate();
